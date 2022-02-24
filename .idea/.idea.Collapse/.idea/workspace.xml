@@ -9,12 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2870cdc-5351-43a0-bfd9-9f0ae069f484" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Collapse/GunManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/CollapseEditor.target" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/CollapseEditor.target" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/GunManager.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,6 +266,7 @@
       <workItem from="1645574477334" duration="6084000" />
       <workItem from="1645675247128" duration="1167000" />
       <workItem from="1645677118313" duration="4622000" />
+      <workItem from="1645736360050" duration="4637000" />
     </task>
     <servers />
   </component>
