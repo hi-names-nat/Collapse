@@ -29,7 +29,7 @@ void GunManager::SecondaryCurrentWeapon()
 
 void GunManager::SelectWeapon(UINT weapon)
 {
-	if (weapon < 4 && Guns[weapon].Unlocked())
+	if (weapon < 4 && Guns[weapon].Unlocked)
 	{
 		this->currentIndex = weapon;
 	}

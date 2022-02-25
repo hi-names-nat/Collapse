@@ -9,8 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2870cdc-5351-43a0-bfd9-9f0ae069f484" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/Collapse/Gun.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Collapse/Gun.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Collapse.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Collapse.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/GunManager.h" afterDir="false" />
     </list>
@@ -267,6 +273,7 @@
       <workItem from="1645675247128" duration="1167000" />
       <workItem from="1645677118313" duration="4622000" />
       <workItem from="1645736360050" duration="4637000" />
+      <workItem from="1645759061152" duration="6233000" />
     </task>
     <servers />
   </component>

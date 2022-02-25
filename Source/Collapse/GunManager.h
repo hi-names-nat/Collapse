@@ -2,9 +2,10 @@
 
 #pragma once
 
-class Gun;
+
 #include <vector>
-#include "CoreMinimal.h" GUNAM
+#include "CoreMinimal.h"
+#include "Gun.h"
 
 /**
  * @brief Manager for the player's weapons. \n
@@ -34,11 +35,9 @@ public:
 
 	void SelectWeapon(UINT weapon);
 
-	
-
 private:
 	//An array of all of our guns. Four slots for the four guns.
-	Gun Guns[4];
+	UGun Guns[4];
 
 	
 	int currentIndex = -1;
