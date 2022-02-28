@@ -1,36 +1,47 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Author: Natalie Soltis for Collapse.
 
 
 #include "GunManager.h"
 
-GunManager::GunManager()
+#include <string>
+
+// Sets default values
+AGunManager::AGunManager()
+{
+ 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+
+}
+
+// Called when the game starts or when spawned
+void AGunManager::BeginPlay()
+{
+	Super::BeginPlay();
+	
+}
+
+// Called every frame
+void AGunManager::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+}
+
+void AGunManager::FireCurrent()
 {
 }
 
-GunManager::~GunManager()
+void AGunManager::FireSecCurrent()
 {
 }
 
-void GunManager::FireCurrentWeapon()
+void AGunManager::ReloadCurrent()
 {
-	unimplemented();
 }
 
-void GunManager::ReloadCurrentWeapon()
+void AGunManager::SwapTo(int GunIndex)
 {
-	unimplemented();
+	std::string s = std::to_string(GunIndex);
+	printf(s.c_str());
 }
 
-
-void GunManager::SecondaryCurrentWeapon()
-{
-	unimplemented();
-}
-
-void GunManager::SelectWeapon(UINT weapon)
-{
-	if (weapon < 4 && Guns[weapon].Unlocked)
-	{
-		this->currentIndex = weapon;
-	}
-}

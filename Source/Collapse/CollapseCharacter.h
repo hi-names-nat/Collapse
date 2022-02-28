@@ -13,6 +13,7 @@ class UCameraComponent;
 class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
+class AGunManager;
 
 UCLASS(config=Game)
 class ACollapseCharacter : public ACharacter
@@ -70,7 +71,12 @@ protected:
 	
 	/** Fires a projectile. */
 	void OnFire();
+	void OnSecondary();
+	void OnReload();
+	void OnSwitchVertical(float index);
+	void OnSwitchHorizontal(float index);
 
+	
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
@@ -88,6 +94,8 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
+
+	AGunManager* GunManager;
 	
 protected:
 	// APawn interface

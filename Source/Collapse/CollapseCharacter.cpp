@@ -7,10 +7,9 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/InputSettings.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
-#include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
+#include "GunManager.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -61,6 +60,9 @@ ACollapseCharacter::ACollapseCharacter()
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
+
+	//Set up our Gun manager etc
+	
 }
 
 void ACollapseCharacter::BeginPlay()
@@ -90,10 +92,14 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 	// Bind fire event
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ACollapseCharacter::OnFire);
-
+	PlayerInputComponent->BindAction("SecondaryFire", IE_Pressed, this, &ACollapseCharacter::OnSecondary);
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ACollapseCharacter::OnReload);
+	
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACollapseCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACollapseCharacter::MoveRight);
+	PlayerInputComponent->BindAxis("SwitchV", this, &ACollapseCharacter::OnSwitchVertical);
+	PlayerInputComponent->BindAxis("SwitchH", this, &ACollapseCharacter::OnSwitchHorizontal);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
@@ -127,6 +133,8 @@ void ACollapseCharacter::OnFire()
 		}
 	}
 
+	
+
 	// try and play the sound if specified
 	if (FireSound != nullptr)
 	{
@@ -143,6 +151,37 @@ void ACollapseCharacter::OnFire()
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
 	}
+}
+
+void ACollapseCharacter::OnSecondary()
+{
+	
+}
+
+void ACollapseCharacter::OnReload()
+{
+	
+}
+
+void ACollapseCharacter::OnSwitchVertical(float index)
+{
+
+	if(index < -.1)
+		GunManager->SwapTo(4);
+	else
+		GunManager->SwapTo(2);
+
+	
+}
+
+void ACollapseCharacter::OnSwitchHorizontal(float index)
+{
+
+		if (index < -.1)
+			GunManager->SwapTo(3);
+		else
+			GunManager->SwapTo(0);
+	
 }
 
 void ACollapseCharacter::MoveForward(float Value)
