@@ -1,6 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CollapseCharacter.h"
+
+#include <iostream>
+#include <GeomUtils/GuContactBuffer.h>
+
 #include "CollapseProjectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
@@ -42,7 +46,7 @@ ACollapseCharacter::ACollapseCharacter()
 
 	// Create a gun mesh component
 	FP_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
-	FP_Gun->SetOnlyOwnerSee(false);			// otherwise won't be visible in the multiplayer
+	FP_Gun->SetOnlyOwnerSee(false); // otherwise won't be visible in the multiplayer
 	FP_Gun->bCastDynamicShadow = false;
 	FP_Gun->CastShadow = false;
 	// FP_Gun->SetupAttachment(Mesh1P, TEXT("GripPoint"));
@@ -62,7 +66,6 @@ ACollapseCharacter::ACollapseCharacter()
 	//bUsingMotionControllers = true;
 
 	//Set up our Gun manager etc
-	
 }
 
 void ACollapseCharacter::BeginPlay()
@@ -71,11 +74,13 @@ void ACollapseCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	//Attach gun mesh component to Skeleton, doing it here because the skeleton is not yet created in the constructor
-	FP_Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+	FP_Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
+	                          TEXT("GripPoint"));
 
 
 	Mesh1P->SetHiddenInGame(false, true);
 
+	GunManager = GetWorld()->SpawnActor<UGunManager>(FVector::ZeroVector, FRotator::ZeroRotator);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -94,12 +99,15 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ACollapseCharacter::OnFire);
 	PlayerInputComponent->BindAction("SecondaryFire", IE_Pressed, this, &ACollapseCharacter::OnSecondary);
 	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ACollapseCharacter::OnReload);
+	PlayerInputComponent->BindAction("SelGun1", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun1);
+	PlayerInputComponent->BindAction("SelGun2", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun2);
+	PlayerInputComponent->BindAction("SelGun3", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun3);
+	PlayerInputComponent->BindAction("SelGun4", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun4);
+
 	
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACollapseCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACollapseCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("SwitchV", this, &ACollapseCharacter::OnSwitchVertical);
-	PlayerInputComponent->BindAxis("SwitchH", this, &ACollapseCharacter::OnSwitchHorizontal);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
@@ -113,75 +121,77 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 void ACollapseCharacter::OnFire()
 {
 	// try and fire a projectile
-	if (ProjectileClass != nullptr)
-	{
-		UWorld* const World = GetWorld();
-		if (World != nullptr)
-		{
-			const FRotator SpawnRotation = GetControlRotation();
-			// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-			const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
-
-			//Set Spawn Collision Handling Override
-			FActorSpawnParameters ActorSpawnParams;
-			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-
-			// spawn the projectile at the muzzle
-			World->SpawnActor<ACollapseProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-
-			
-		}
-	}
-
-	
-
+	// if (ProjectileClass != nullptr)
+	// {
+	// 	UWorld* const World = GetWorld();
+	// 	if (World != nullptr)
+	// 	{
+	// 		const FRotator SpawnRotation = GetControlRotation();
+	// 		// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+	// 		const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr)
+	// 			                               ? FP_MuzzleLocation->GetComponentLocation()
+	// 			                               : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+	//
+	// 		//Set Spawn Collision Handling Override
+	// 		FActorSpawnParameters ActorSpawnParams;
+	// 		ActorSpawnParams.SpawnCollisionHandlingOverride =
+	// 			ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+	//
+	// 		// spawn the projectile at the muzzle
+	// 		World->SpawnActor<ACollapseProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+	// 	}
+	// }
 	// try and play the sound if specified
-	if (FireSound != nullptr)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
+	// if (FireSound != nullptr)
+	// {
+	// 	UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	// }
+	//
+	// // try and play a firing animation if specified
+	// if (FireAnimation != nullptr)
+	// {
+	// 	// Get the animation object for the arms mesh
+	// 	UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+	// 	if (AnimInstance != nullptr)
+	// 	{
+	// 		AnimInstance->Montage_Play(FireAnimation, 1.f);
+	// 	}
+	// }
 
-	// try and play a firing animation if specified
-	if (FireAnimation != nullptr)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != nullptr)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
+	GunManager->FireCurrent();
 }
 
 void ACollapseCharacter::OnSecondary()
 {
-	
+	GunManager->FireCurrentSec();
 }
 
 void ACollapseCharacter::OnReload()
 {
-	
+	GunManager->ReloadCurrent();
 }
 
-void ACollapseCharacter::OnSwitchVertical(float index)
+void ACollapseCharacter::OnSwitchGun1()
 {
-
-	if(index < -.1)
-		GunManager->SwapTo(4);
-	else
-		GunManager->SwapTo(2);
-
-	
+	GunManager->SwapTo(1);
 }
 
-void ACollapseCharacter::OnSwitchHorizontal(float index)
+void ACollapseCharacter::OnSwitchGun2()
 {
+	GunManager->SwapTo(2);
 
-		if (index < -.1)
-			GunManager->SwapTo(3);
-		else
-			GunManager->SwapTo(0);
-	
+}
+
+void ACollapseCharacter::OnSwitchGun3()
+{
+	GunManager->SwapTo(3);
+
+}
+
+void ACollapseCharacter::OnSwitchGun4()
+{
+	GunManager->SwapTo(4);
+
 }
 
 void ACollapseCharacter::MoveForward(float Value)

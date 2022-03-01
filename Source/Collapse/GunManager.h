@@ -3,37 +3,33 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "Components/ActorComponent.h"
+//#include "Gun.h"
 #include "GunManager.generated.h"
 
-class UGun;
 
-UCLASS()
-class COLLAPSE_API AGunManager : public AActor
+
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class COLLAPSE_API UGunManager : public UActorComponent
 {
 	GENERATED_BODY()
-	
+
 public:	
-	// Sets default values for this actor's properties
-	AGunManager();
+	// Sets default values for this component's properties
+	UGunManager();
 
-	UGun* guns[4];
-	unsigned numGuns = 4;
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	void SwapTo(int index);
+	void ReloadCurrent();
+	void FireCurrent();
+	void FireCurrentSec();
+	
 protected:
-	// Called when the game starts or when spawned
+	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	void FireCurrent();
-
-	void FireSecCurrent();
-
-	void ReloadCurrent();
-	
-	void SwapTo(int GunIndex);
-
+private:	
+	//UGun Guns[4];
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GunManager.h"
 #include "GameFramework/Character.h"
 #include "CollapseCharacter.generated.h"
 
@@ -13,7 +14,7 @@ class UCameraComponent;
 class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
-class AGunManager;
+class UGunManager;
 
 UCLASS(config=Game)
 class ACollapseCharacter : public ACharacter
@@ -35,6 +36,8 @@ class ACollapseCharacter : public ACharacter
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
+	
+	UGunManager* GunManager;
 
 public:
 	ACollapseCharacter();
@@ -73,8 +76,11 @@ protected:
 	void OnFire();
 	void OnSecondary();
 	void OnReload();
-	void OnSwitchVertical(float index);
-	void OnSwitchHorizontal(float index);
+	void OnSwitchGun1();
+	void OnSwitchGun2();
+	void OnSwitchGun3();
+	void OnSwitchGun4();
+
 
 	
 	/** Handles moving forward/backward */
@@ -95,7 +101,7 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
-	AGunManager* GunManager;
+	// AGunManager GunManager;
 	
 protected:
 	// APawn interface

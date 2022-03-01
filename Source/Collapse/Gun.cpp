@@ -13,6 +13,18 @@ UGun::UGun()
 	// ...
 }
 
+void UGun::Reload()
+{
+}
+
+void UGun::Fire()
+{
+}
+
+void UGun::FireSecondary()
+{
+}
+
 // Called when the game starts
 void UGun::BeginPlay()
 {

@@ -8,7 +8,7 @@
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class COLLAPSE_API UGun : public UActorComponent
+class COLLAPSE_API UGun : public UMeshComponent
 {
 	GENERATED_BODY()
 
@@ -24,6 +24,10 @@ public:
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Gameplay)
 	bool Unlocked = false;
+
+	void Reload();
+	void Fire();
+	void FireSecondary();
 
 protected:
 	// Called when the game starts
