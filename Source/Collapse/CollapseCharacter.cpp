@@ -65,7 +65,9 @@ ACollapseCharacter::ACollapseCharacter()
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
 
-	//Set up our Gun manager etc
+	GunManager = CreateDefaultSubobject<UGunManager>(TEXT("GunManager"));
+	AddOwnedComponent(GunManager);
+
 }
 
 void ACollapseCharacter::BeginPlay()
@@ -80,7 +82,8 @@ void ACollapseCharacter::BeginPlay()
 
 	Mesh1P->SetHiddenInGame(false, true);
 
-	GunManager = GetWorld()->SpawnActor<UGunManager>(FVector::ZeroVector, FRotator::ZeroRotator);
+	// //Set up our Gun manager etc
+	// GunManager = GetWorld()->SpawnActor<UGunManager>(FVector::ZeroVector, FRotator::ZeroRotator);
 }
 
 //////////////////////////////////////////////////////////////////////////

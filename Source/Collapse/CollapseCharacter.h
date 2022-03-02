@@ -37,6 +37,7 @@ class ACollapseCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GunManager, meta = (AllowPrivateAccess = "true"))
 	UGunManager* GunManager;
 
 public:

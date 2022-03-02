@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-//#include "Gun.h"
+#include "Gun.h"
 #include "GunManager.generated.h"
 
 
+DECLARE_LOG_CATEGORY_EXTERN(GunManager, Log, All);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class COLLAPSE_API UGunManager : public UActorComponent
@@ -31,5 +32,5 @@ protected:
 	virtual void BeginPlay() override;
 
 private:	
-	//UGun Guns[4];
+	UGun* Guns[4];
 };

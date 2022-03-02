@@ -25,9 +25,9 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, Category = Gameplay)
 	bool Unlocked = false;
 
-	void Reload();
-	void Fire();
-	void FireSecondary();
+	virtual void Reload();
+	virtual void Fire();
+	virtual void FireSecondary();
 
 protected:
 	// Called when the game starts
