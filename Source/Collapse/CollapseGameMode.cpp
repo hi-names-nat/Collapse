@@ -1,8 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CollapseGameMode.h"
-#include "CollapseHUD.h"
-#include "CollapseCharacter.h"
+#include "Player/CollapseHUD.h"
 #include "UObject/ConstructorHelpers.h"
 
 ACollapseGameMode::ACollapseGameMode()
