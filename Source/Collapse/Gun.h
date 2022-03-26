@@ -12,10 +12,11 @@ class COLLAPSE_API UGun : public UMeshComponent
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UPROPERTY(VisibleAnywhere, Category = Gun, meta = (AllowPrivateAccess = "true"))
 	USkeletalMesh* WeaponMesh;
 
-	
+	friend class WeaponManager;
+
 	
 
 public:	

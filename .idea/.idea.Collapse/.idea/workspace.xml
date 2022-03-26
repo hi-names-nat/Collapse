@@ -9,12 +9,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2870cdc-5351-43a0-bfd9-9f0ae069f484" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ShotGun.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ShotGun_PhysicsAsset.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ShotGun_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/lambert1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Collapse/BaseInventory.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Collapse/BaseInventory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/CollapseEditor.target" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/CollapseEditor.target" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +34,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -45,7 +55,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -286,6 +296,15 @@
       <workItem from="1646454409223" duration="1376000" />
       <workItem from="1646498905880" duration="8595000" />
       <workItem from="1646538861903" duration="1103000" />
+      <workItem from="1647401082869" duration="454000" />
+      <workItem from="1647963039028" duration="4910000" />
+      <workItem from="1647981816077" duration="12156000" />
+      <workItem from="1648067748149" duration="2995000" />
+      <workItem from="1648080239097" duration="2968000" />
+      <workItem from="1648139615517" duration="92000" />
+      <workItem from="1648148523173" duration="3089000" />
+      <workItem from="1648231722114" duration="1059000" />
+      <workItem from="1648242846949" duration="5890000" />
     </task>
     <servers />
   </component>

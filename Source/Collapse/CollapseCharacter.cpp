@@ -13,7 +13,7 @@
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
-#include "GunManager.h"
+#include "Gun_SMG.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -22,7 +22,6 @@ DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
 ACollapseCharacter::ACollapseCharacter()
 {
-	GetControlRotation
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 
@@ -50,7 +49,7 @@ ACollapseCharacter::ACollapseCharacter()
 	FP_Gun->SetOnlyOwnerSee(false); // otherwise won't be visible in the multiplayer
 	FP_Gun->bCastDynamicShadow = false;
 	FP_Gun->CastShadow = false;
-	// FP_Gun->SetupAttachment(Mesh1P, TEXT("GripPoint"));
+	// FP_Gun->SetupAttachment(Mesh1P, TEXT("GripPoint"));l
 	FP_Gun->SetupAttachment(RootComponent);
 
 	FP_MuzzleLocation = CreateDefaultSubobject<USceneComponent>(TEXT("MuzzleLocation"));
@@ -63,8 +62,30 @@ ACollapseCharacter::ACollapseCharacter()
 	// Note: The ProjectileClass and the skeletal mesh/anim blueprints for Mesh1P, FP_Gun, and VR_Gun 
 	// are set in the derived blueprint asset named MyCharacter to avoid direct content references in C++.
 
-	GunManager = CreateDefaultSubobject<UGunManager>(TEXT("GunManager"));
-	AddOwnedComponent(GunManager);
+	SMG = CreateDefaultSubobject<UGun_SMG>(TEXT("SMG"));
+	SMG->SetupAttachment(RootComponent);
+	SMG->SetOnlyOwnerSee(true);
+	SMG->CastShadow = true;
+	SMG->bCastDynamicShadow = true;
+	
+	UGun* flare = nullptr;
+	// flare->SetupAttachment(RootComponent);
+	// flare->SetOnlyOwnerSee(true);
+	// flare->CastShadow = true;
+	// flare->bCastDynamicShadow = true;
+	
+	UGun* shotgun = nullptr;
+	// shotgun->SetupAttachment(RootComponent);
+	// shotgun->SetOnlyOwnerSee(true);
+	// shotgun->CastShadow = true;
+	// shotgun->bCastDynamicShadow = true;
+	
+	
+	UGun* railgun = nullptr;
+	// railgun->SetupAttachment(RootComponent);
+	// railgun->SetOnlyOwnerSee(true);
+	// railgun->CastShadow = true;
+	// railgun->bCastDynamicShadow = true;
 
 }
 
@@ -79,9 +100,6 @@ void ACollapseCharacter::BeginPlay()
 
 
 	Mesh1P->SetHiddenInGame(false, true);
-
-	// //Set up our Gun manager etc
-	// GunManager = GetWorld()->SpawnActor<UGunManager>(FVector::ZeroVector, FRotator::ZeroRotator);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -121,40 +139,38 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 void ACollapseCharacter::OnFire()
 {
-
-	GunManager->FireCurrent();
 }
 
 void ACollapseCharacter::OnSecondary()
 {
-	GunManager->FireCurrentSec();
+
 }
 
 void ACollapseCharacter::OnReload()
 {
-	GunManager->ReloadCurrent();
+
 }
 
 void ACollapseCharacter::OnSwitchGun1()
 {
-	GunManager->SwapTo(1);
+
 }
 
 void ACollapseCharacter::OnSwitchGun2()
 {
-	GunManager->SwapTo(2);
+
 
 }
 
 void ACollapseCharacter::OnSwitchGun3()
 {
-	GunManager->SwapTo(3);
+
 
 }
 
 void ACollapseCharacter::OnSwitchGun4()
 {
-	GunManager->SwapTo(4);
+
 
 }
 

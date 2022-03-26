@@ -3,7 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GunManager.h"
+#include "BaseInventory.h"
+#include "Gun_SMG.h"
 #include "GameFramework/Character.h"
 #include "CollapseCharacter.generated.h"
 
@@ -14,7 +15,12 @@ class UCameraComponent;
 class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
-class UGunManager;
+class WeaponManager;
+
+struct playerInventory : BaseInventory
+{
+	
+};
 
 UCLASS(config=Game)
 class ACollapseCharacter : public ACharacter
@@ -34,11 +40,13 @@ class ACollapseCharacter : public ACharacter
 	USceneComponent* FP_MuzzleLocation;
 
 	/** First person camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GunManager, meta = (AllowPrivateAccess = "true"))
-	UGunManager* GunManager;
+	UPROPERTY(VisibleAnywhere, Category = GunManager, meta = (AllowPrivateAccess = "true"))
+	UGun_SMG* SMG;
+
+	WeaponManager* weaponManager;
 
 public:
 	ACollapseCharacter();
@@ -59,27 +67,52 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
 	FVector GunOffset;
 
-	/** Projectile class to spawn */
-	UPROPERTY(EditDefaultsOnly, Category=Projectile)
-	TSubclassOf<class ACollapseProjectile> ProjectileClass;
+	// /** Projectile class to spawn */
+	// UPROPERTY(EditDefaultsOnly, Category=Projectile)
+	// TSubclassOf<class ACollapseProjectile> ProjectileClass;
 
-	/** Sound to play each time we fire */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
-	USoundBase* FireSound;
-
-	/** AnimMontage to play each time we fire */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	UAnimMontage* FireAnimation;
+	// /** Sound to play each time we fire */
+	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
+	// USoundBase* FireSound;
+	//
+	// /** AnimMontage to play each time we fire */
+	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	// UAnimMontage* FireAnimation;
 
 protected:
-	
-	/** Fires a projectile. */
+	/**
+	 * @brief 
+	 */
 	void OnFire();
+
+	/**
+	 * @brief 
+	 */
 	void OnSecondary();
+
+	/**
+	 * @brief 
+	 */
 	void OnReload();
+
+	/**
+	 * @brief 
+	 */
 	void OnSwitchGun1();
+
+	/**
+	 * @brief 
+	 */
 	void OnSwitchGun2();
+
+	/**
+	 * @brief 
+	 */
 	void OnSwitchGun3();
+
+	/**
+	 * @brief 
+	 */
 	void OnSwitchGun4();
 
 
@@ -102,7 +135,6 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
-	// AGunManager GunManager;
 	
 protected:
 	// APawn interface

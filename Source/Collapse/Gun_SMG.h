@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Gun.h"
+#include "Camera/CameraComponent.h"
 #include "Gun_SMG.generated.h"
 
 /**
@@ -17,7 +18,11 @@ class COLLAPSE_API UGun_SMG : public UGun
 	virtual void Reload() override;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	
+	
 	UPROPERTY(EditDefaultsOnly, Category=Projectile)
 	TSubclassOf<class ACollapseProjectile> ProjectileClass;
+
+	
 	
 };
