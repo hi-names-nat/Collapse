@@ -8,25 +8,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2870cdc-5351-43a0-bfd9-9f0ae069f484" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/ShotGun.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ShotGun_PhysicsAsset.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ShotGun_Skeleton.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/lambert1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Collapse/BaseInventory.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Collapse/BaseInventory.h" afterDir="false" />
+    <list default="true" id="f4bcdf87-0044-435f-9050-9b17605b517d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Collapse/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/CollapseEditor.target" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/CollapseEditor.target" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0001.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0001.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0004.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0004.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0005.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0005.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0006.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0006.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0007.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0007.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0009.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0009.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0012.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0012.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0017.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0017.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0018.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0018.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0019.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0019.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0020.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0020.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0022.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0022.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0023.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0023.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0024.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0024.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0028.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor-Collapse-0028.pdb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UE4Editor.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/FirstPersonCPP/Maps/FirstPersonExampleMap_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/CollapseCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/GunManager.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ShotGun.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ShotGun_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ShotGun_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/lambert1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/BaseInventory.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/BaseInventory.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/CollapseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Player/CollapseCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/CollapseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Player/CollapseCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/GunManager.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/Guns/Gun.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Player/Guns/BaseGun.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/Guns/Gun.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Collapse/Player/Guns/BaseGun.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/Guns/Gun_SMG.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Collapse/Player/Guns/Gun_SMG.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +64,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Source/Collapse/Gun_SMG.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Collapse/Gun_SMG.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Collapse/Player/CollapseCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Collapse/Player/CollapseCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Collapse/Player/Guns/BaseGun.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,7 +86,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -276,7 +307,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2870cdc-5351-43a0-bfd9-9f0ae069f484" name="Changes" comment="" />
+      <changelist id="f4bcdf87-0044-435f-9050-9b17605b517d" name="Changes" comment="" />
       <created>1645574450995</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -305,6 +336,22 @@
       <workItem from="1648148523173" duration="3089000" />
       <workItem from="1648231722114" duration="1059000" />
       <workItem from="1648242846949" duration="5890000" />
+      <workItem from="1648311428264" duration="143000" />
+      <workItem from="1648311604815" duration="6000" />
+      <workItem from="1648311897207" duration="1121000" />
+      <workItem from="1648351971963" duration="681000" />
+      <workItem from="1648352973658" duration="2155000" />
+      <workItem from="1648394589452" duration="7484000" />
+      <workItem from="1648607844138" duration="40000" />
+      <workItem from="1648699720932" duration="752000" />
+      <workItem from="1648702574693" duration="253000" />
+      <workItem from="1648744915116" duration="2063000" />
+      <workItem from="1649300797635" duration="1028000" />
+      <workItem from="1649555267149" duration="1221000" />
+      <workItem from="1650769772635" duration="4374000" />
+      <workItem from="1650851804859" duration="2267000" />
+      <workItem from="1651177550977" duration="1044000" />
+      <workItem from="1651180243084" duration="2086000" />
     </task>
     <servers />
   </component>

@@ -2,25 +2,37 @@
 
 #pragma once
 
+#include <memory>
 #include "CoreMinimal.h"
-#include "BaseInventory.h"
-#include "Gun_SMG.h"
 #include "GameFramework/Character.h"
+#include <vector>
 #include "CollapseCharacter.generated.h"
+
 
 class UInputComponent;
 class USkeletalMeshComponent;
 class USceneComponent;
 class UCameraComponent;
+class UBaseGun;
 
 //Unneeded.
 class UAnimMontage;
 class USoundBase;
 class WeaponManager;
 
-struct playerInventory : BaseInventory
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnUseItem);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReloadItem);
+
+struct GunManager
 {
-	
+	//Do not access directly
+	std::vector<std::shared_ptr<UBaseGun>> list_guns;
+
+	std::shared_ptr<UBaseGun> GetGunAt(uint8 index);
+
+	std::shared_ptr<UBaseGun> nextGun(uint8 index) { int i = index + 1; if (i<0) return list_guns[0]; else return list_guns[i]; }
+
+	std::shared_ptr<UBaseGun> previousGun(uint8 index) { int i = index - 1; if (i<0) return list_guns[list_guns.size()-1]; else return list_guns[i];}
 };
 
 UCLASS(config=Game)
@@ -29,7 +41,6 @@ class ACollapseCharacter : public ACharacter
 	GENERATED_BODY()
 private:
 	
-
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
 	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
 	USkeletalMeshComponent* Mesh1P;
@@ -45,11 +56,17 @@ private:
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	UBaseGun* CurrentGun;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	float timer = .1f;
 	
-	UPROPERTY(VisibleAnywhere, Category = GunManager, meta = (AllowPrivateAccess = "true"))
-	UGun_SMG* SMG;
 
 public:
+	GunManager guns;
+	
 	ACollapseCharacter();
 
 protected:
@@ -86,6 +103,8 @@ protected:
 	 */
 	void OnFire();
 
+	void OnFireUp();
+
 	/**
 	 * @brief 
 	 */
@@ -115,8 +134,6 @@ protected:
 	 * @brief 
 	 */
 	void OnSwitchGun4();
-
-	virtual void BeginPlay() override;
 	
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
@@ -135,8 +152,6 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
-
-	// AGunManager GunManager;
 	
 protected:
 	// APawn interface

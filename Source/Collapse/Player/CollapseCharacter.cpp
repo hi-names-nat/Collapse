@@ -3,6 +3,8 @@
 #include "CollapseCharacter.h"
 
 #include <iostream>
+#include <list>
+#include <vector>
 #include <GeomUtils/GuContactBuffer.h>
 
 #include "CollapseProjectile.h"
@@ -12,17 +14,15 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
+#include "Guns/BaseGun.h"
 #include "MotionControllerComponent.h"
-#include "GunManager.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
 //////////////////////////////////////////////////////////////////////////
 // ACollapseCharacter
-
 ACollapseCharacter::ACollapseCharacter()
 {
-	GetControlRotation
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 
@@ -62,7 +62,8 @@ ACollapseCharacter::ACollapseCharacter()
 
 	// Note: The ProjectileClass and the skeletal mesh/anim blueprints for Mesh1P, FP_Gun, and VR_Gun 
 	// are set in the derived blueprint asset named MyCharacter to avoid direct content references in C++.
-
+	CurrentGun = CreateDefaultSubobject<UBaseGun>(TEXT("GUN"));
+	CurrentGun->SetupAttachment(RootComponent);
 }
 
 void ACollapseCharacter::BeginPlay()
@@ -76,9 +77,6 @@ void ACollapseCharacter::BeginPlay()
 
 
 	Mesh1P->SetHiddenInGame(false, true);
-
-	// //Set up our Gun manager etc
-	// GunManager = GetWorld()->SpawnActor<UGunManager>(FVector::ZeroVector, FRotator::ZeroRotator);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -95,6 +93,8 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 	// Bind fire event
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ACollapseCharacter::OnFire);
+	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ACollapseCharacter::OnFireUp);
+
 	PlayerInputComponent->BindAction("SecondaryFire", IE_Pressed, this, &ACollapseCharacter::OnSecondary);
 	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ACollapseCharacter::OnReload);
 	PlayerInputComponent->BindAction("SelGun1", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun1);
@@ -102,7 +102,7 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("SelGun3", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun3);
 	PlayerInputComponent->BindAction("SelGun4", IE_Pressed, this, &ACollapseCharacter::OnSwitchGun4);
 
-	
+
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACollapseCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACollapseCharacter::MoveRight);
@@ -114,43 +114,46 @@ void ACollapseCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("TurnRate", this, &ACollapseCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ACollapseCharacter::LookUpAtRate);
+
+	//Bind inventory stuff
 }
 
 void ACollapseCharacter::OnFire()
 {
+	a = true;
+
+	
 }
+
+void ACollapseCharacter::OnFireUp()
+{
+	a = false;
+}
+
+
 
 void ACollapseCharacter::OnSecondary()
 {
-
 }
 
 void ACollapseCharacter::OnReload()
 {
-
 }
 
 void ACollapseCharacter::OnSwitchGun1()
 {
-
 }
 
 void ACollapseCharacter::OnSwitchGun2()
 {
-
-
 }
 
 void ACollapseCharacter::OnSwitchGun3()
 {
-
-
 }
 
 void ACollapseCharacter::OnSwitchGun4()
 {
-
-
 }
 
 void ACollapseCharacter::MoveForward(float Value)
